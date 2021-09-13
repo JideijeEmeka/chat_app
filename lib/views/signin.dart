@@ -17,61 +17,67 @@ class _SignInState extends State<SignIn> {
         centerTitle: true,
         title: appBarMain(context),
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        alignment: Alignment.bottomCenter,
+      body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Spacer(),
-              TextField(
-                  style: simpleTextStyle(),
-                  decoration: textFieldInputDecoration('email')),
-              TextField(
-                  style: simpleTextStyle(),
-                  decoration: textFieldInputDecoration('password')),
-              SizedBox(
-                height: 8,
-              ),
-              Container(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Text(
-                    'Forget Password?',
+          height: MediaQuery.of(context).size.height - 90,
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
                     style: simpleTextStyle(),
+                    decoration: textFieldInputDecoration('email')),
+                TextField(
+                    style: simpleTextStyle(),
+                    decoration: textFieldInputDecoration('password')),
+                SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Text(
+                      'Forget Password?',
+                      style: simpleTextStyle(),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              customButton1(context, 'Sign In'),
-              SizedBox(
-                height: 16,
-              ),
-              customButton2(context, 'Sign In with Google'),
-              SizedBox(
-                height: 16,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Don`t have an account?',
+                SizedBox(
+                  height: 8,
+                ),
+                customButton1(context, 'Sign In'),
+                SizedBox(
+                  height: 16,
+                ),
+                customButton2(context, 'Sign In with Google'),
+                SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Don`t have an account?',
+                        style: GoogleFonts.roboto(
+                            textStyle:
+                                TextStyle(fontSize: 16, color: Colors.white))),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Register now',
                       style: GoogleFonts.roboto(
                           textStyle:
-                              TextStyle(fontSize: 16, color: Colors.white))),
-                  Text(
-                    'Register now',
-                    style: GoogleFonts.roboto(
-                        textStyle: TextStyle(fontSize: 16, color: Colors.white),
-                        decoration: TextDecoration.underline),
-                  )
-                ],
-              )
-            ],
+                              TextStyle(fontSize: 16, color: Colors.white),
+                          decoration: TextDecoration.underline),
+                    )
+                  ],
+                ),
+                SizedBox(height: 50),
+              ],
+            ),
           ),
         ),
       ),
