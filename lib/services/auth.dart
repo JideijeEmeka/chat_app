@@ -35,7 +35,6 @@ class AuthMethods {
       return await _auth.signOut();
     } catch (e) {
       print(e.toString());
-      return null;
     }
   }
 

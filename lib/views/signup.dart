@@ -1,4 +1,6 @@
 import 'package:chat_app/services/auth.dart';
+import 'package:chat_app/views/chatRoomScreen.dart';
+import 'package:chat_app/views/signin.dart';
 import 'package:chat_app/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +19,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
 
-  signMeUP() {
+  signMeUp() {
     if (formKey.currentState.validate()) {
       setState(() {
         isLoading = true;
@@ -27,7 +29,8 @@ class _SignUpState extends State<SignUp> {
           .signUpWithEmailAndPassword(
               emailController.text, passwordController.text)
           .then((val) {
-        print("$val");
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => ChatRoom()));
       });
     }
   }
@@ -39,10 +42,31 @@ class _SignUpState extends State<SignUp> {
         title: appBarMain(context),
       ),
       body: isLoading
-          ? Container(
-              child: Center(
-                child: CircularProgressIndicator(
-                  color: Colors.pink,
+          ? Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width - 70,
+                height: 110,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.blue, width: 5),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Creating account...',
+                        style: GoogleFonts.prompt(
+                            textStyle: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ))),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    CircularProgressIndicator(
+                      color: Colors.pink,
+                      backgroundColor: Colors.blue,
+                    ),
+                  ],
                 ),
               ),
             )
@@ -111,7 +135,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       GestureDetector(
                           onTap: () {
-                            signMeUP();
+                            signMeUp();
                           },
                           child: customButton1(context, 'Sign Up')),
                       SizedBox(
@@ -140,7 +164,7 @@ class _SignUpState extends State<SignUp> {
                           )
                         ],
                       ),
-                      SizedBox(height: 50),
+                      SizedBox(height: 80),
                     ],
                   ),
                 ),
