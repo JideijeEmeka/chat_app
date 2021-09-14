@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignIn extends StatefulWidget {
+  final Function toogle;
+  SignIn(this.toogle);
+
   @override
   _SignInState createState() => _SignInState();
 }
@@ -66,16 +69,24 @@ class _SignInState extends State<SignIn> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text(
-                      'Register now',
-                      style: GoogleFonts.roboto(
-                          textStyle:
-                              TextStyle(fontSize: 16, color: Colors.white),
-                          decoration: TextDecoration.underline),
+                    GestureDetector(
+                      onTap: () {
+                        widget.toogle();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Text(
+                          'Register now',
+                          style: GoogleFonts.roboto(
+                              textStyle:
+                                  TextStyle(fontSize: 16, color: Colors.white),
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
                     )
                   ],
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 80),
               ],
             ),
           ),
