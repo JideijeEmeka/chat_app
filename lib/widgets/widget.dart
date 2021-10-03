@@ -28,6 +28,10 @@ TextStyle simpleTextStyle() {
   return TextStyle(color: Colors.white, fontSize: 16);
 }
 
+TextStyle mediumTextStyle() {
+  return TextStyle(color: Colors.white, fontSize: 17);
+}
+
 Widget customButton1(BuildContext context, String text) {
   Color color1 = Colors.pink;
   Color color2 = Colors.blue;
