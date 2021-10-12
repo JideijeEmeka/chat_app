@@ -75,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       width: 10,
                     ),
-                    CircularProgressIndicator(
+                    CircularProgressIndicator( 
                       color: Colors.pink,
                       backgroundColor: Colors.blue,
                     ),

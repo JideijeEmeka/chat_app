@@ -13,7 +13,7 @@ class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = new TextEditingController();
   DatabaseMethods databaseMethods = new DatabaseMethods();
 
-  QuerySnapshot searchSnapshot;
+  QuerySnapshot searchSnapshot; 
 
   initiateSearch() {
     databaseMethods.getUserByUsername(searchController.text).then((val) {
@@ -31,7 +31,8 @@ class _SearchScreenState extends State<SearchScreen> {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return SearchTile(
-                  username: searchSnapshot.docs[index]["name"].data(),
+                //REVIEW
+                  username: searchSnapshot.docs[index]["name"].data(searchSnapshot),
                   userEmail: searchSnapshot.docs[index]["email"].data());
             })
         : Container();
