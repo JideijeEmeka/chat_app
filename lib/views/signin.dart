@@ -37,7 +37,7 @@ class _SignInState extends State<SignIn> {
                     decoration: textFieldInputDecoration('password')),
                 SizedBox(
                   height: 8,
-                ),
+                ), 
                 Container(
                   alignment: Alignment.centerRight,
                   child: Container(
