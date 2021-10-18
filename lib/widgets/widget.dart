@@ -41,7 +41,7 @@ Widget customButton1(BuildContext context, String text) {
     padding: EdgeInsets.symmetric(vertical: 20),
     decoration: BoxDecoration(
         gradient: LinearGradient(colors: [color1, color2]),
-        borderRadius: BorderRadius.circular(10)),
+        borderRadius: BorderRadius.circular(10)), 
     child: Text(
       text,
       style: GoogleFonts.josefinSans(fontSize: 17, color: Colors.white),
